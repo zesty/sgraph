@@ -16,8 +16,8 @@ class SGraph:
     def __init__(self, graph):
         """Make an SGraph.
 
-        graph - an iterable of edges/arcs with costs as strings, e.g.
-                'AB5' => edge from 'A' to 'B' of cost 5
+        graph - an iterable of edges/arcs with costs as tuples of (src, dest, cost)
+                [('A', 'B', 5)] => graph with one edge from node 'A' to node 'B' of cost 5
         
         NOTE: edge costs must be non-negative
         """
