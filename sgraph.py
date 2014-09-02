@@ -37,19 +37,18 @@ class SGraph:
     def route_distance(self, route):
         """Compute the distance along a given route.
         
-        route - an iterable of nodes as strings, e.g. ['A', 'B', 'C']
+        route - a list of nodes as strings, e.g. ['A', 'B', 'C']
         """
 
         dist = 0
-        route = route.copy()
-        src = route.pop(0)
+        src = route[0]
 
         if src not in self.G:
             # don't return two diff types/meanings, throw exception instead. same below
             # TODO best impl?
             raise SGraph.NoSuchRoute('NO SUCH ROUTE')
 
-        for city in route:
+        for city in route[1:]:
             if city not in self.G[src]:
                 raise SGraph.NoSuchRoute('NO SUCH ROUTE')
             dist += self.G[src][city]
