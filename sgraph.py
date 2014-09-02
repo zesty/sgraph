@@ -41,6 +41,7 @@ class SGraph:
         """
 
         dist = 0
+        route = route.copy()
         src = route.pop(0)
 
         if src not in self.G:
